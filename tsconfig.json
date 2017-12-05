@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "outDir": "./build/",
+      "noImplicitAny": true,
+      "target": "es5",
+      "sourceMap": true,
+      "allowJs": true
+    }
+  }
