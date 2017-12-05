@@ -6,13 +6,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PORT = process.env.PORT || 3003;
 //copy library to local __dirname
-copyReactiveFormValidationLibrary = () => {
+/*copyReactiveFormValidationLibrary = () => {
   fs.createReadStream(path.join(__dirname, '../../build', 'bundle.js'))
   .pipe(fs.createWriteStream('./build/reactive-form-validation.js'));
 }
 
 copyReactiveFormValidationLibrary();
-
+*/
 module.exports = {
   'entry': './app/index.jsx',
   'output': {

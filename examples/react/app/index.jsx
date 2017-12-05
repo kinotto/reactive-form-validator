@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../style/main.scss';
+const ReactiveFormValidator = require('reactive-form-validator');
 
 const getForm = () => {
   return (

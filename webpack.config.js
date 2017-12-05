@@ -29,5 +29,8 @@ module.exports = {
         reasons: true,
         errorDetails: true
       },
+    node: {
+        fs: "empty"
+    },  
     externals: [nodeExternals()]
 }

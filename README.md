@@ -6,6 +6,29 @@ this simple library help to handle form input (client side) validation, built wi
 
 the compiled file is just 48kb and has no dependency a part from rxjs 5
 
+# API
+```javascript
+    //create instance with default config
+    this.validator = new ReactiveFormValidator({
+      'debounce': 300, //default debounce
+      'evtType': 'blur' //default event handled
+     });
+     //register a validator
+
+     let validator$ = this.validator.registerValidator(
+        input.dom, //dom el
+        'validator': {
+            'fn': (evt) => evt.target.value, //validate if element is not empty
+            'msg': 'surname cannot be empty'
+        },
+        'blur', // specific event handled
+        ['input_err'], //classes to be added in case of error
+        100 //specific debounce time (override the default one)
+      );
+
+```
+
+
 # Example
 
   ```javascript
