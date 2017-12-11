@@ -1,6 +1,6 @@
 {
   "name": "reactive-form-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "form input validator following a reactive approach with rxjs 5",
   "main": "./build/bundle.js",
   "author": "karim",
