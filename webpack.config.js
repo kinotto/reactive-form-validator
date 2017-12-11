@@ -1,25 +1,31 @@
-var path = require('path');
-var nodeExternals = require('webpack-node-externals');
+const path = require('path');
+//const webpackRxjsExternals = require('webpack-rxjs-externals');
+//const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
     entry: './src/reactive-form-validator.ts',
-    devtool: 'inline-source-map',
-    target: 'web',
+    devtool: 'source-map',
+    //target: 'node',
     output: {
         publicPath: "/",
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
-        libraryTarget: 'umd'
-        //library: 'test'
+        libraryTarget: 'umd',
+        library: 'test'
+        
     },
     resolve: {
-        extensions: ['.ts'] //resolve all the modules other than index.ts
+        extensions: [".ts", ".tsx", ".js", ".json"] //resolve all the modules other than index.ts
     },
     module: {
         rules: [
             {
                 loader: 'ts-loader',
-                test: /\.ts?$/
+                test: /\.tsx?$/
+                /*exclude: [
+                    /(node_modules|bower_components|unitTest)/,
+                    './webpack.config.js'
+                ]*/
             }
         ]
     },
@@ -28,9 +34,11 @@ module.exports = {
         modules: true,
         reasons: true,
         errorDetails: true
-      },
-    node: {
-        fs: "empty"
-    },  
-    externals: [nodeExternals()]
+      }
+
+
+     // externals: [nodeExternals()]
+    //node: {fs: "empty"}
+    //externals: [nodeExternals(), webpackRxjsExternals()]
+    //externals: [webpackRxjsExternals()]
 }

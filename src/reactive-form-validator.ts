@@ -1,8 +1,5 @@
-//const requirejs = require('requirejs');
-//const rx = require('rxjs');
-//const Observable = rx.Observable;
-//const Observable = require('rxjs').Observable;
 import {Observable} from 'rxjs';
+
 /**
  * utility to handle form input validation with a reactive approach (rxjs)
  */
@@ -23,16 +20,16 @@ export default class ReactiveFormValidator {
    * @param params
    * @returns a validator stream that resolve each time an event of the type specified is triggered 
    */
-  createEmitter(domEl: HTMLElement, validator: any, ...params: any[]) :Observable<any> {
+  createEmitter(domEl: HTMLElement, validator: any, ...params: any[]) :any {
     let evtType = params[0] || 'blur';
     let errorClasses = params[1] || [];
     let debounce = params[2];
 
-    return new Observable(observer => {
+   return new Observable((observer: any) => {
       // register a dom event
       let event$ =Observable.fromEvent(domEl, evtType)
         .debounceTime(debounce || this.config.debounce || 0)
-        .subscribe(evt => {
+        .subscribe((evt: any) => {
           if (validator.fn(evt)) {
             observer.next({'isValid': true, 'domEl': domEl});
             domEl.classList.remove(...errorClasses);
@@ -48,7 +45,7 @@ export default class ReactiveFormValidator {
   }
 
 
-  registerValidator(domEl: HTMLElement, validator: any, ...params: any[]) :Observable<any> {
+  registerValidator(domEl: HTMLElement, validator: any, ...params: any[]) :any {
     return this.createEmitter(domEl, validator, ...params);
   }
 }

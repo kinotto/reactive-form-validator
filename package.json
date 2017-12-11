@@ -8,17 +8,19 @@
     "start": "npm-run-all --parallel watch:server watch:build ",
     "watch:server": "nodemon \"./build/bundle.js\" --watch \"./build\" ",
     "watch:build": "webpack --watch",
-    "build": "webpack ./webpack.config.js",
+    "build": "webpack --config ./webpack.config.js",
     "test": "mocha --require ts-node/register src/spec/test.ts",
     "start:examples": "node ./examples/server"
   },
   "license": "ISC",
   "devDependencies": {
+    "@types/requirejs": "^2.1.31",
     "chai": "^4.1.2",
     "express": "^4.16.2",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
     "npm-run-all": "^4.1.1",
+    "requirejs": "^2.3.5",
     "sinon": "^4.1.2",
     "supertest": "^3.0.0",
     "ts-loader": "^3.0.5",
@@ -26,8 +28,7 @@
     "typescript": "^2.5.3",
     "webpack": "^3.8.1",
     "webpack-node-externals": "^1.6.0",
-    "@types/requirejs": "^2.1.31",
-    "requirejs": "^2.3.5"
+    "webpack-rxjs-externals": "^1.1.0"
   },
   "dependencies": {
     "rxjs": "^5.5.3"

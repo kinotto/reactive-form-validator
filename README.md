@@ -58,6 +58,7 @@ class MyForm extends Component {
             //dom element is valid
           } else {
             //dom element is not valid, change dom accordingly
+            //here you can access the input.validator.msg that you previously passed to the validator
           }
         });
     });
