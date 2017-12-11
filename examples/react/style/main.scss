@@ -4,3 +4,40 @@ body{
   font-style: normal;
   font-weight: 400;
 }
+
+.input_cont{
+  position: relative;
+  margin-bottom: 15px;
+  width: 100%;
+
+  .input_err{
+    border: 1px solid #d42034 !important;
+  }
+  input {
+    padding: 0 8px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    //border-radius: 3px;
+    background-color: #ffffff;
+  }
+
+  .input_err_text{
+    color: #d42034;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+}
+
+
+/*
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*/
+
+
+
+
