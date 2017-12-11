@@ -30,7 +30,7 @@ the compiled file is just 48kb and has no dependency a part from rxjs 5
 ```
 
 
-# Example
+# Example with React
 
   ```javascript
 import ReactiveFormValidator from 'reactive-form-validator';
