@@ -8,11 +8,10 @@ the compiled file is just 48kb and has no dependency a part from rxjs 5
 
 The idea behind the library is to have an Observable validator coupled with a specific dom element and to subscribe to this observable to check its validity and modify the dom accordingly (eg. add some error classes etc.)
 
-# Install
+# Install with npm or yarn
 
-- npm install --save reactive-form-validator
-or
-- yarn add --save reactive-form-validator
+- `npm install --save reactive-form-validator`
+- `yarn add --save reactive-form-validator`
 
 
 # React simple form example
