@@ -12,6 +12,26 @@ The idea behind the library is to have an Observable validator coupled with a sp
 - `yarn add --save reactive-form-validator`
 
 
+# API
+ there are two api , one to instantiate the library and one to register a validator for a specific dom element
+ 
+```javascript
+let config = {
+  'debounce': 300, //default debounce
+  'evtType': 'blur' //default event handled
+}
+ this.validator = new ReactiveFormValidator(config);
+```
+```javascript
+let validator$ = this.validator.registerValidator(
+  domEl, //dom el
+  validator, //validator
+  'blur', // specific event handled
+  ['input_err'], //classes to be added in case of error
+  100 //specific debounce time (override the default one)
+);
+```
+
 # React simple form example (client side validation)
 
   ```javascript
@@ -22,18 +42,18 @@ class MyForm extends Component {
     super();
     this.inputs = []; // collection of inputs / validators
     this.validator = new ReactiveFormValidator({
-      'debounce': 300, //default debounce
-      'evtType': 'blur' //default event handled
+      'debounce': 300,
+      'evtType': 'blur'
      });
   }
   componentDidMount() {
     this.inputs.forEach(input => {
       let validator$ = this.validator.registerValidator(
-        input.dom, //dom el
-        input.validator, //validator
-        'blur', // specific event handled
-        ['input_err'], //classes to be added in case of error
-        100 //specific debounce time (override the default one)
+        input.dom,
+        input.validator,
+        'blur', 
+        ['input_err'],
+        100
       );
 
       validator$
