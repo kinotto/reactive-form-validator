@@ -1,18 +1,16 @@
 const path = require('path');
-//const webpackRxjsExternals = require('webpack-rxjs-externals');
-//const nodeExternals = require('webpack-node-externals');
+const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: './src/reactive-form-validator.ts',
     devtool: 'source-map',
-    //target: 'node',
     output: {
         publicPath: "/",
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
         libraryTarget: 'umd',
         library: 'test'
-        
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"] //resolve all the modules other than index.ts
@@ -22,10 +20,6 @@ module.exports = {
             {
                 loader: 'ts-loader',
                 test: /\.tsx?$/
-                /*exclude: [
-                    /(node_modules|bower_components|unitTest)/,
-                    './webpack.config.js'
-                ]*/
             }
         ]
     },
@@ -34,11 +28,14 @@ module.exports = {
         modules: true,
         reasons: true,
         errorDetails: true
-      }
-
-
-     // externals: [nodeExternals()]
-    //node: {fs: "empty"}
-    //externals: [nodeExternals(), webpackRxjsExternals()]
-    //externals: [webpackRxjsExternals()]
+      },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        //minification
+        new UglifyJSPlugin()
+    ]
 }

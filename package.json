@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "form input validator following a reactive approach with rxjs 5",
   "main": "./build/bundle.js",
+  "homepage": "https://github.com/kinotto/reactive-form-validator",
   "author": "karim",
   "scripts": {
     "start": "npm-run-all --parallel watch:server watch:build ",

@@ -1,4 +1,3 @@
-...still under development
 # Reactive form validator
 
 based on rxjs following a reactive approach
@@ -19,7 +18,7 @@ the compiled file is just 48kb and has no dependency a part from rxjs 5
      let validator$ = this.validator.registerValidator(
         input.dom, //dom el
         'validator': {
-            'fn': (evt) => evt.target.value, //validate if element is not empty
+            'fn': evt => evt.target.value, //validate if element is not empty
             'msg': 'surname cannot be empty'
         },
         'blur', // specific event handled
@@ -93,3 +92,6 @@ class MyForm extends Component {
         </form>
      </div>  
    ```
+
+# Examples
+- <a href="https://kinotto.github.io/reactive-form-validator/examples/react/">React example</a>

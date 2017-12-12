@@ -3,19 +3,27 @@ body {
   font-style: normal;
   font-weight: 400; }
 
-.input_cont{
+.input_cont {
   position: relative;
   margin-bottom: 15px;
-  width: 100%;
+  width: 100%; }
+  .input_cont .input_err {
+    border: 1px solid #d42034 !important; }
+  .input_cont input {
+    padding: 0 8px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    background-color: #ffffff; }
+  .input_cont .input_err_text {
+    color: #d42034;
+    font-size: 12px;
+    margin-top: 4px; }
 
-  
-}
-.input_cont > input {
-  padding: 10px !important;
-}
-
+/*
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+*/
