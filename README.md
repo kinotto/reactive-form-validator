@@ -1,12 +1,10 @@
 # Reactive form validator
 
-Based on rxjs following a reactive approach
-
-this simple library help to handle form input (client side) validation, built with typescript can be used with any client side framework like react or angular
+Simple library to handle form input validation following a reactive approach (rxjs), built with typescript can be used with any client side framework like react or angular
 
 the compiled file is just 48kb and has no dependency a part from rxjs 5
 
-The idea behind the library is to have an Observable validator coupled with a specific dom element and to subscribe to this observable to check its validity and modify the dom accordingly (eg. add some error classes etc.)
+The idea behind the library is to have an Observable validator coupled with a specific dom element and to subscribe to this observable to check if the element is is valid and modify the dom accordingly (eg. add some error classes etc.)
 
 # Install with npm or yarn
 
@@ -14,7 +12,7 @@ The idea behind the library is to have an Observable validator coupled with a sp
 - `yarn add --save reactive-form-validator`
 
 
-# React simple form example
+# React simple form example (client side validation)
 
   ```javascript
 import ReactiveFormValidator from 'reactive-form-validator';
@@ -79,5 +77,35 @@ class MyForm extends Component {
      </div>  
    ```
 
-# Working Examples
+# Advanced usage with server side validation
+the validator function can return either a primitive value or a Promise/Observable, in this case it is possible
+to perform a server side validation, if for example the input is not valid the you should reject the promise or throw an error with if you're using an Observable.
+
+  ```javascript
+//Promise
+<input
+  type="text"
+  ref={el => this.inputs.push({
+    'dom': el,
+    'validator': {
+      'fn': evt => new Promise((resolve, reject) => evt.target.value ? resolve() : reject()),
+      'msg': 'field cannot be empty'
+    }
+  })}
+/>
+
+//Observable
+<input
+  type="text"
+  ref={el => this.inputs.push({
+    'dom': el,
+    'validator': {
+      'fn': evt => new Observable(observer => evt.target.value ? observer.complete() : observer.error()),
+      'msg': 'field cannot be empty'
+    }
+  })}
+/>
+ ```
+
+# Working Examples (with function, Promise and Observable)
 - <a href="https://kinotto.github.io/reactive-form-validator/examples/react/">React example</a>

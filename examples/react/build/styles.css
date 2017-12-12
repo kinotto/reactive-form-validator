@@ -11,6 +11,7 @@ body {
     border: 1px solid #d42034 !important; }
   .input_cont input {
     padding: 0 8px;
+    width: 50%;
     height: 44px;
     line-height: 44px;
     font-size: 14px;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactiveFormValidator from 'reactive-form-validator';
+import {Observable} from 'rxjs';
 import $ from 'jquery';
 
 export default class ReactiveForm extends Component {
@@ -72,6 +73,35 @@ export default class ReactiveForm extends Component {
               })}
             />
           </div>
+
+          <div className="input_cont">
+            <input
+              type="text"
+              placeholder="Organization (validator fn uses Promise)"
+              ref={el => this.inputs.push({
+                'dom': el,
+                'validator': {
+                  'fn': evt => new Promise((resolve, reject) => evt.target.value ? resolve() : reject()),
+                  'msg': 'Organization cannot be empty'
+                }
+              })}
+            />
+          </div>
+
+          <div className="input_cont">
+            <input
+              type="text"
+              placeholder="Fiscal code (validator fn uses Observables)"
+              ref={el => this.inputs.push({
+                'dom': el,
+                'validator': {
+                  'fn': evt => new Observable(observer => evt.target.value ? observer.complete() : observer.error()),
+                  'msg': 'Fiscal code cannot be empty'
+                }
+              })}
+            />
+          </div>
+
         </form>
       </div>
     );
