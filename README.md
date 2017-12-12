@@ -1,38 +1,18 @@
 # Reactive form validator
 
-based on rxjs following a reactive approach
+Based on rxjs following a reactive approach
 
 this simple library help to handle form input (client side) validation, built with typescript can be used with any client side framework like react or angular
 
 the compiled file is just 48kb and has no dependency a part from rxjs 5
 
-# API
-```javascript
-    //create instance with default config
-    this.validator = new ReactiveFormValidator({
-      'debounce': 300, //default debounce
-      'evtType': 'blur' //default event handled
-     });
-     //register a validator
+The idea behind the library is to have an Observable validator coupled with a specific dom element and to subscribe to this observable to check its validity and modify the dom accordingly (eg. add some error classes etc.)
 
-     let validator$ = this.validator.registerValidator(
-        input.dom, //dom el
-        'validator': {
-            'fn': evt => evt.target.value, //validate if element is not empty
-            'msg': 'surname cannot be empty'
-        },
-        'blur', // specific event handled
-        ['input_err'], //classes to be added in case of error
-        100 //specific debounce time (override the default one)
-      );
-
-```
-
-
-# Example with React
+# API with React
 
   ```javascript
 import ReactiveFormValidator from 'reactive-form-validator';
+
 class MyForm extends Component {
   constructor() {
     super();
@@ -49,7 +29,7 @@ class MyForm extends Component {
         input.validator, //validator
         'blur', // specific event handled
         ['input_err'], //classes to be added in case of error
-        100 //specific debounce time
+        100 //specific debounce time (override the default one)
       );
 
       validator$
@@ -93,5 +73,5 @@ class MyForm extends Component {
      </div>  
    ```
 
-# Examples
+# Working Examples
 - <a href="https://kinotto.github.io/reactive-form-validator/examples/react/">React example</a>
