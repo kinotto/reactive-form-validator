@@ -24,8 +24,11 @@ this.validator = new ReactiveFormValidator(config);
 ```
 ```javascript
 let validator$ = this.validator.registerValidator(
-  domEl, //dom element
-  validator, //validator
+  'domEl', //dom element
+  'validator': {
+    'fn': evt => evt.target.value, //validator check if field is empty
+    'msg': 'name cannot be empty'
+  }, 
   'blur', // specific event handled for this element
   ['input_err'], //classes to be added in case of error
   100 //specific debounce time (override the default one)
@@ -57,7 +60,7 @@ class MyForm extends Component {
       );
 
       validator$
-        .subscribe((el) => {
+        .subscribe(el => {
           if (el.isValid) {
             //dom element is valid
           } else {
@@ -77,7 +80,7 @@ class MyForm extends Component {
                 ref={el => (this.inputs.push({
                   'dom': el, 
                   'validator': {
-                    'fn': (evt) => evt.target.value, 
+                    'fn': evt => evt.target.value, 
                     'msg': 'surname cannot be empty'
                   }
                   }))}
@@ -88,7 +91,7 @@ class MyForm extends Component {
                     ref={el => (this.inputs.push({
                       'dom': el, 
                        'validator': {
-                          'fn': (evt) => evt.target.value, 
+                          'fn': evt => evt.target.value, 
                           'msg': 'name cannot be empty'
                         }
                        }))}
@@ -99,7 +102,7 @@ class MyForm extends Component {
 
 # Advanced usage with server side validation
 the validator function can return either a primitive value or a Promise/Observable, in this case it is possible
-to perform a server side validation, if for example the input is not valid the you should reject the promise or throw an error with if you're using an Observable.
+to perform a server side validation, if for example the input is not valid then you should reject the promise or throw an error if you're using an Observable.
 
   ```javascript
 //Promise
