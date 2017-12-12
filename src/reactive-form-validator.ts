@@ -27,7 +27,7 @@ export default class ReactiveFormValidator {
 
    return new Observable((observer: any) => {
       // register a dom event
-      let event$ =Observable.fromEvent(domEl, evtType)
+      let event$ = Observable.fromEvent(domEl, evtType)
         .debounceTime(debounce || this.config.debounce || 0)
         .subscribe((evt: any) => {
           if (validator.fn(evt)) {

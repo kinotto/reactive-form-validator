@@ -8,7 +8,7 @@ the compiled file is just 48kb and has no dependency a part from rxjs 5
 
 The idea behind the library is to have an Observable validator coupled with a specific dom element and to subscribe to this observable to check its validity and modify the dom accordingly (eg. add some error classes etc.)
 
-# API with React
+# React simple form example
 
   ```javascript
 import ReactiveFormValidator from 'reactive-form-validator';
