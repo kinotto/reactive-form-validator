@@ -5151,9 +5151,9 @@ react@^16.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-reactive-form-validator@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/reactive-form-validator/-/reactive-form-validator-1.0.2.tgz#00a335077174e6937873b084db36d3b7258c6383"
+reactive-form-validator@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/reactive-form-validator/-/reactive-form-validator-1.0.4.tgz#5b943f855238ffa117156e5312e436bf890cb85d"
   dependencies:
     rxjs "^5.5.3"
 
