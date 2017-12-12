@@ -20,13 +20,13 @@ let config = {
   'debounce': 300, //default debounce
   'evtType': 'blur' //default event handled
 }
- this.validator = new ReactiveFormValidator(config);
+this.validator = new ReactiveFormValidator(config);
 ```
 ```javascript
 let validator$ = this.validator.registerValidator(
-  domEl, //dom el
+  domEl, //dom element
   validator, //validator
-  'blur', // specific event handled
+  'blur', // specific event handled for this element
   ['input_err'], //classes to be added in case of error
   100 //specific debounce time (override the default one)
 );
