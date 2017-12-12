@@ -1,8 +1,6 @@
 # Reactive form validator
 
-Simple library to handle form input validation following a reactive approach (rxjs), built with typescript can be used with any client side framework like react or angular
-
-the compiled file is just 48kb and has no dependency a part from rxjs 5
+Simple library to handle form input validation following a reactive approach (rxjs 5), built with typescript can be used with any client side framework like react or angular
 
 The idea behind the library is to have an Observable validator coupled with a specific dom element and to subscribe to this observable to check if the element is is valid and modify the dom accordingly (eg. add some error classes etc.)
 
@@ -23,6 +21,8 @@ let config = {
 this.validator = new ReactiveFormValidator(config);
 ```
 ```javascript
+
+//returns an Observable
 let validator$ = this.validator.registerValidator(
   'domEl', //dom element
   'validator': {
