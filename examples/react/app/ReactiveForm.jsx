@@ -44,7 +44,8 @@ export default class ReactiveForm extends Component {
   render() {
     return (
       <div>
-        <h2>example form react + reactive form validation</h2>
+        <h2>Example form react + reactive form validation</h2>
+        <h3>validation fails on empty fields</h3>
         <form action="">
           <div className="input_cont">
             <input
