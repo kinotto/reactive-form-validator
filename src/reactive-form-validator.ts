@@ -13,6 +13,7 @@ export default class ReactiveFormValidator {
     };
     this.config = (<any>Object).assign({}, defaultConfig, config);
   }
+
 /**
  * validate a dom element 
  * @param domEl 
@@ -20,8 +21,9 @@ export default class ReactiveFormValidator {
  * @param observer 
  * @param isValid 
  */
-  validateElement(domEl: HTMLElement, errorClasses: string[], observer: Observer<any>, isValid: boolean){
-    observer.next({'isValid': isValid, 'domEl': domEl});
+  validateElement(domEl: any, errorClasses: string[], observer: Observer<any>, isValid: boolean){
+    domEl.isValid = isValid;
+    observer.next(domEl);
     if(!isValid){
       domEl.classList.add(...errorClasses);
     } else {
