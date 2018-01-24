@@ -24,7 +24,7 @@ this.validator = new ReactiveFormValidator(config);
 
 //returns an Observable
 let validator$ = this.validator.registerValidator(
-  'domEl', //dom element
+  domEl, //dom element
   'validator': {
     'fn': evt => evt.target.value, //validator check if field is empty
     'msg': 'name cannot be empty'
