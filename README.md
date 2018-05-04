@@ -35,6 +35,8 @@ let validator$ = this.validator.registerValidator(
 );
 ```
 
+![img](https://thumbs.gfycat.com/WeakObviousChameleon-size_restricted.gif)
+
 # React simple form example (client side validation)
 
   ```javascript
