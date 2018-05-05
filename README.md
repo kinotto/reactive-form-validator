@@ -4,7 +4,7 @@ Simple library to handle form input validation following a reactive approach (rx
 
 The idea behind the library is to have an Observable validator coupled with a specific dom element and to subscribe to this observable to check if the element is is valid and modify the dom accordingly (eg. add some error classes etc.)
 
-<img src="https://thumbs.gfycat.com/ShoddyBriefIndianrockpython-max-14mb.gif" width=500 />
+<img src="https://thumbs.gfycat.com/UnluckyCarefulGrebe-max-14mb.gif" width=500 />
 
 # Install with npm or yarn
 
